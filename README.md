@@ -1,3 +1,5 @@
+Jacob Kaufmann & Jeff Rubillo
+
 This is an Openstack profile that is based on CloudLab's [default OpenStack profile](https://gitlab.flux.utah.edu/johnsond/openstack-build-ubuntu)
 
 - These are a collection of scripts that install and configuration
