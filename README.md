@@ -1,4 +1,4 @@
-Jacob Kaufmann & Jeff Rubillo
+Jacob Kaufmann & Jeff Rubillo (CPSC 4770-6770 - Distributed and Cluster Computing)
 
 This is an Openstack profile that is based on CloudLab's [default OpenStack profile](https://gitlab.flux.utah.edu/johnsond/openstack-build-ubuntu)
 
