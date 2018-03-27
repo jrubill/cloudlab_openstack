@@ -4453,10 +4453,10 @@ network_id=`openstack network show -f shell flat-lan-1-net | grep "^id=" | cut -
 subnet_id=`openstack network show -f shell flat-lan-1-net | grep "^subnets=" | cut -d'"' -f 2`
 
 # See https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/port.html
-openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=192.168.2.301 node1
-openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=192.168.2.302 node2
-openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=192.168.2.303 node3
-openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=192.168.2.304 node4
+openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=10.14.10.11 node1
+openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=10.14.10.12 node2
+openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=10.14.10.13 node3
+openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-address=10.14.10.14 node4
 
 # See https://docs.openstack.org/project-install-guide/baremetal/draft/configure-glance-images.html
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/5dukzod4ftj9v3g5r8q0ktxzweuj2vvw.vmdk
