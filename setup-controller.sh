@@ -4462,8 +4462,13 @@ openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/5dukzod4ftj9v3g5r8q0ktxzweuj2vvw.vmdk
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/s3boy014q1289b22zczf7eeg1yvrylqb.vmdk
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/s3boy014q1289b22zczf7eeg1yvrylqb.vmdk
+# image for HeadNode
 wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/vzog69ts5122h9m6awsg8852gbvg79pw.vmdk
 glance image-create --name OL7 --disk-format vmdk --visibility public --container-format bare < /tmp/setup/OL7.vmdk
+# image for OFS
+# wget -O /tmp/setup/OFS.vmdk https://clemson.box.com/shared/static/m63daf5zxqssgrj800m4ttwfn7117xjn.vmdk
+# glance image-create --name OFS --disk-format vmdk --visibility public --container-format < /tmp/setup/OFS.vmdk
+
 
 project_id=`openstack project list -f value | grep admin | cut -d' ' -f 1`
 flavor_id=`openstack flavor list -f value | grep m1.small | cut -d' ' -f 1`
