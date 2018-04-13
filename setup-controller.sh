@@ -4463,7 +4463,8 @@ openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/s3boy014q1289b22zczf7eeg1yvrylqb.vmdk
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/s3boy014q1289b22zczf7eeg1yvrylqb.vmdk
 # image for HeadNode
-wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/vzog69ts5122h9m6awsg8852gbvg79pw.vmdk
+# wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/vzog69ts5122h9m6awsg8852gbvg79pw.vmdk
+wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/49yvz2pzbe9rndnk5ebjfxeyuiwyu78g.vmdk
 glance image-create --name OL7 --disk-format vmdk --visibility public --container-format bare < /tmp/setup/OL7.vmdk
 # image for OFS
 # wget -O /tmp/setup/OFS.vmdk https://clemson.box.com/shared/static/m63daf5zxqssgrj800m4ttwfn7117xjn.vmdk
