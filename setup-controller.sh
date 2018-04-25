@@ -4469,34 +4469,34 @@ openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-
 # wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/vzog69ts5122h9m6awsg8852gbvg79pw.vmdk
 
 # this one works! 
-# wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/wzbu117siye6qwsnp1k03hoi6kfg4f4i.vmdk
-# glance image-create --name OL7 --disk-format vmdk --visibility public --container-format bare < /tmp/setup/OL7.vmdk
+wget -O /tmp/setup/OL7.vmdk https://clemson.box.com/shared/static/wzbu117siye6qwsnp1k03hoi6kfg4f4i.vmdk
+glance image-create --name OL7 --disk-format vmdk --visibility public --container-format bare < /tmp/setup/OL7.vmdk
 
 # image for OFS
 # wget -O /tmp/setup/OFS.vmdk https://clemson.box.com/shared/static/m63daf5zxqssgrj800m4ttwfn7117xjn.vmdk
 # glance image-create --name OFS --disk-format vmdk --visibility public --container-format < /tmp/setup/OFS.vmdk
 
 # vanilla
-wget -O /tmp/setup/vanilla.vmdk https://clemson.box.com/shared/static/v9helcewhtp14rrh8usgf5pnr6ohmt4r.vmdk
-glance image-create --name vanilla --disk-format vmdk --visibility public --container-format bare < /tmp/setup/vanilla.vmdk
+# wget -O /tmp/setup/vanilla.vmdk https://clemson.box.com/shared/static/v9helcewhtp14rrh8usgf5pnr6ohmt4r.vmdk
+# glance image-create --name vanilla --disk-format vmdk --visibility public --container-format bare < /tmp/setup/vanilla.vmdk
 
 
 project_id=`openstack project list -f value | grep admin | cut -d' ' -f 1`
 flavor_id=`openstack flavor list -f value | grep m1.small | cut -d' ' -f 1`
-image_id=`openstack image list -f value | grep vanilla | cut -d' ' -f 1`
+image_id=`openstack image list -f value | grep OL7 | cut -d' ' -f 1`
 security_id=`openstack security group list -f value | grep $project_id | cut -d' ' -f 1`
 
 port_id=`openstack port list -f value | grep node4 | cut -d' ' -f 1`
-openstack server create --flavor m1.medium --security-group $security_id --image vanilla --nic port-id=$port_id headnode
+openstack server create --flavor m1.medium --security-group $security_id --image OL7 --nic port-id=$port_id headnode
 
 port_id=`openstack port list -f value | grep node3 | cut -d' ' -f 1`
-openstack server create --flavor m1.medium --security-group $security_id --image vanilla --nic port-id=$port_id sub1
+openstack server create --flavor m1.medium --security-group $security_id --image OL7 --nic port-id=$port_id sub1
 
 port_id=`openstack port list -f value | grep node2 | cut -d' ' -f 1`
-openstack server create --flavor m1.medium --security-group $security_id --image vanilla --nic port-id=$port_id sub2
+openstack server create --flavor m1.medium --security-group $security_id --image OL7 --nic port-id=$port_id sub2
 
 port_id=`openstack port list -f value | grep node1 | cut -d' ' -f 1`
-openstack server create --flavor m1.medium --security-group $security_id --image vanilla --nic port-id=$port_id sub3
+openstack server create --flavor m1.medium --security-group $security_id --image OL7 --nic port-id=$port_id sub3
 
 # # ## # # # # # # ## # #
 # See https://docs.openstack.org/mitaka/install-guide-ubuntu/launch-instance-selfservice.html
