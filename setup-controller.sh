@@ -4478,7 +4478,7 @@ openstack port create --network ${network_id} --fixed-ip subnet=${subnet_id},ip-
 
 # vanilla
 wget -O /tmp/setup/vanilla.vmdk https://clemson.box.com/shared/static/v9helcewhtp14rrh8usgf5pnr6ohmt4r.vmdk
-glance image-create --name vanilla --disk-format vmdk --visibility public --container-format < /tmp/setup/vanilla.vmdk
+glance image-create --name vanilla --disk-format vmdk --visibility public --container-format bare < /tmp/setup/vanilla.vmdk
 
 
 project_id=`openstack project list -f value | grep admin | cut -d' ' -f 1`
